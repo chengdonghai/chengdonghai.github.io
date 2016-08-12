@@ -1,0 +1,22 @@
+<p>苹果的应用内购凭证校验步骤见官网：<a href="https://developer.apple.com/library/prerelease/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html#//apple_ref/doc/uid/TP40010573-CH104-SW1">苹果app内购凭证校验</a>，苹果的凭证验证有两种：</p>
+
+<ol>
+<li>Validating Receipts With the App Store 通过访问苹果接口进行验证。</li>
+<li>Validating Receipts Locally 本地代码解码进行验证</li>
+</ol>
+
+<p>可以参考一个第三方应用内购库<a href="https://github.com/robotmedia/RMStore">RMStore</a>，这个库帮你省去了很多内购接入的麻烦。</p>
+
+<hr>
+
+<p>其中第二种验证方式存在被破解的风险，因为这种验证是本地进行的，破解者可以通过伪造凭证进行破解，甚至通过一些内购破解插件来破解,所以安全考虑第一种方式是必须的，第二种验证可以同时存在（先进行本地，再请求服务器验证）。</p>
+
+<h2 id="1">1.这样就安全了吗？</h2>
+
+<p>一般还需要苹果的付款订单和我们自己后台的订单进行一对一约束，一次付款只能成功一次后台订单，这个需要自己后台人员去做限制，一对多和多对一都是不正确的。</p>
+
+<h2 id="2">2.用户付款成功了，但是苹果服务器校验失败了怎么办？</h2>
+
+<p>验证过程中如果由于网络问题失败或者苹果服务异常等原因导致验证失败，比如返回的报文格式不是json格式，则需要提供重试功能给用户重试，或者将凭证保存到后台，后台人员通过第一种方式重新验证。</p>
+
+<hr>

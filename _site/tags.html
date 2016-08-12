@@ -6,7 +6,7 @@
 
 	
 
-	<meta name="author" content="Ankan Biswas">
+	<meta name="author" content="Donghai Cheng">
 
 		<!-- Enable responsive viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +15,25 @@
 <link rel="stylesheet" type="text/css" href="/assets/resources/syntax/syntax.css">
 <link rel="stylesheet" type="text/css" href="/assets/resources/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/assets/resources/font-awesome/css/font-awesome.min.css">
+<link rel="icon" href="header_image.png">
 
-<link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.useso.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="/assets/js/app.js"></script>
 	
-
+<script type="text/javascript">
+$(document).ready(function(){
+if(window.location.href=="http://blog.ankanbiswas.in/uno-dbyll/")
+{
+$("#sidebar").css({width:'100%'});
+$("#btnblog").click(function(){
+$("#sidebar").animate({width:'33.3333%'},'slow');
+});
+}
+});
+	
+</script>
 	</head>
 <body>
 
@@ -37,26 +48,22 @@
         <span class="icon-bar"></span>
       </button>
       
-      <a type="button" class="navbar-toggle nav-link" href="http://github.com/talk2ankan">
+      <a type="button" class="navbar-toggle nav-link" href="http://github.com/chengdonghai">
         <i class="fa fa-github"></i>
       </a>
       
       
-      <a type="button" class="navbar-toggle nav-link" href="http://twitter.com/talk2ankan">
-        <i class="fa fa-twitter"></i>
-      </a>
-      
        
-      <a type="button" class="navbar-toggle nav-link" href="mailto:support@ankanbiswas.in">
+      <a type="button" class="navbar-toggle nav-link" href="mailto:18658800949@189.cn">
         <i class="fa fa-envelope"></i>
       </a>
       
      
 
      
-      <a class="navbar-brand" href="/">
-        <img src="http://www.gravatar.com/avatar/35c5e037a8f897506f3d2d4c059130f0?s=35" class="img-circle" />
-        I'm Ankan Biswas
+      <a class="navbar-brand" href="">
+        <img src="header_image.png" class="img-circle" style="height:35px;width:35px"/>
+        cheng
       </a>
     </div>
     
@@ -64,9 +71,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbarHeaderCollapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="http://ankanbiswas.in/categories.html">Categories</a></li>
-        <li><a href="http://ankanbiswas.in/tags.html">Tags</a></li>
+        <li class="active"><a href="">Home</a></li>
+        <li><a href="/categories.html">Categories</a></li>
+        <li><a href="/tags.html">Tags</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
 
@@ -78,9 +85,9 @@
      <i class="fa fa-bars"></i>
    </button>
    <ul class="dropdown-menu pull-right" role="menu">
-     <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-     <li><a href="http://ankanbiswas.in/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
-     <li><a href="http://ankanbiswas.in/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+     <li><a href=""><i class="fa fa-home"></i> Home</a></li>
+     <li><a href="/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+     <li><a href="/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
      <li class="divider"></li>
      <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
    </ul>
@@ -89,43 +96,42 @@
 <div class="col-sm-4 sidebar hidden-xs" id="sidebar">
 		<! -- sidebar.html -->
 <header class="sidebar-header" role="banner">
-	<a href="http://ankanbiswas.in">
-		<img src="http://www.gravatar.com/avatar/35c5e037a8f897506f3d2d4c059130f0?s=85" class="img-circle" style="border-radius: 50%;
-border: 3px solid #FFF;" />
+	<a href="./">
+		<img src="header_image.png" class="img-circle" style="border-radius: 50%;
+border: 3px solid #FFF; height:150px;width:150px" />
 	</a>
-	<h3 class="title">
-        <a href="http://ankanbiswas.in">I'm Ankan Biswas</a>
-         <p style="font-size:20px;">Computer Programmer</p>
-    </h3>
-    
+	<h4 class="title">
+        <a href="./">cheng</a>
+    </h4>
+         <p style="font-size:20px;">iOS开发者</p>
     <hr class="hr-line">
 <h3 class="title">
-         <p style="font-size:18px">Salutation, this is my-space my-world. I dream , i hallucinate, i am curious and ambitious.</p>
+         <p style="font-size:18px">不断学习，不断进步。</p>
     </h3>
 
     <hr class="hr-line1">
  <h3 class="title" style="font-size:30px;">
  
        
-      <a type="button" class="social1" href="http://github.com/talk2ankan">
+      <a type="button" class="social1" href="http://github.com/chengdonghai">
         <i class="fa fa-github"></i>
       </a>
       
        
-      <a type="button" class="social2" href="http://twitter.com/talk2ankan">
-        <i class="fa fa-twitter"></i>
+      <a type="button" class="social2" href="http://weibo.com/u/2367910750">
+        <i class="fa fa-weibo"></i>
       </a>
       
      
       
-      <a type="button" class="social3" href="mailto:support@ankanbiswas.in">
+      <a type="button" class="social3" href="mailto:18658800949@189.cn">
         <i class="fa fa-envelope"></i>
       </a>
       
-       <hr class="hr-line1">
-       <a type="button"  style="font-size:20px; padding:7px; padding-left:13px;padding-right:13px;margin-right: 10px;" class="social3 " id="btnblog" href="/#blog">
+       <!--<hr class="hr-line1">
+      <a type="button"  style="font-size:20px; padding:7px; padding-left:13px;padding-right:13px;margin-right: 10px;" class="social3 " id="btnblog" href="/#blog">
         <i class="fa" style="font-weight:bold;letter-spacing:0; font-family:arial,sans-serif">Blog</i>
-      </a>
+      </a>-->
       </h3>
 
 </header>
@@ -133,6 +139,7 @@ border: 3px solid #FFF;" />
 
 
 <! -- sidebar.html end -->
+
 	</div>
 
 <div class="col-sm-8 col-sm-offset-4" id="container">
@@ -149,64 +156,85 @@ border: 3px solid #FFF;" />
     
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#Arch-ref" data-toggle="tab">
-            Arch<span class="badge pull-right">1</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#FMDB-ref" data-toggle="tab">
+            FMDB<span class="badge pull-right">1</span>
          </a>
       </li>
    
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#appache-ref" data-toggle="tab">
-            appache<span class="badge pull-right">1</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#In-App-Purchase-ref" data-toggle="tab">
+            In-App Purchase<span class="badge pull-right">1</span>
          </a>
       </li>
    
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#lamp-ref" data-toggle="tab">
-            lamp<span class="badge pull-right">2</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#Tool-ref" data-toggle="tab">
+            Tool<span class="badge pull-right">1</span>
          </a>
       </li>
    
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#mariadb-ref" data-toggle="tab">
-            mariadb<span class="badge pull-right">1</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#UIScrollView-ref" data-toggle="tab">
+            UIScrollView<span class="badge pull-right">1</span>
          </a>
       </li>
    
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#mysql-ref" data-toggle="tab">
-            mysql<span class="badge pull-right">1</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#UIView-ref" data-toggle="tab">
+            UIView<span class="badge pull-right">1</span>
          </a>
       </li>
    
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#php-ref" data-toggle="tab">
-            php<span class="badge pull-right">1</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#layer-ref" data-toggle="tab">
+            layer<span class="badge pull-right">1</span>
          </a>
       </li>
    
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#setup-ref" data-toggle="tab">
-            setup<span class="badge pull-right">2</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#九宫格-ref" data-toggle="tab">
+            九宫格<span class="badge pull-right">1</span>
          </a>
       </li>
    
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#tasksel-ref" data-toggle="tab">
-            tasksel<span class="badge pull-right">1</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#企业级应用-ref" data-toggle="tab">
+            企业级应用<span class="badge pull-right">1</span>
          </a>
       </li>
    
       
       <li>
-          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#ubuntu-ref" data-toggle="tab">
-            ubuntu<span class="badge pull-right">1</span>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#凭证验证-ref" data-toggle="tab">
+            凭证验证<span class="badge pull-right">1</span>
+         </a>
+      </li>
+   
+      
+      <li>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#应用内购-ref" data-toggle="tab">
+            应用内购<span class="badge pull-right">1</span>
+         </a>
+      </li>
+   
+      
+      <li>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#应用安装-ref" data-toggle="tab">
+            应用安装<span class="badge pull-right">1</span>
+         </a>
+      </li>
+   
+      
+      <li>
+          <a style="font-family:ubuntu; color:#666;font-weight:bold" href="#遮罩-ref" data-toggle="tab">
+            遮罩<span class="badge pull-right">1</span>
          </a>
       </li>
    
@@ -216,95 +244,121 @@ border: 3px solid #FFF;" />
 <div class="tab-content col-sm-9 col-xs-6">
   
     
-    <div class="tab-pane" id="Arch-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with Arch</h2>
+    <div class="tab-pane" id="FMDB-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with FMDB</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/lamp-installation-on-Arch">Lamp Installation on Arch</a> <span class="text-muted">- November 03, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE-FMDBTool">开源项目：FMDBTool</a> <span class="text-muted">- July 29, 2016</span></li>
         
       </ul>
     </div>
   
     
-    <div class="tab-pane" id="appache-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with appache</h2>
+    <div class="tab-pane" id="In-App-Purchase-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with In-App Purchase</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/lamp-installation-on-Arch">Lamp Installation on Arch</a> <span class="text-muted">- November 03, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91">苹果App内购的一些坑</a> <span class="text-muted">- July 12, 2016</span></li>
         
       </ul>
     </div>
   
     
-    <div class="tab-pane" id="lamp-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with lamp</h2>
+    <div class="tab-pane" id="Tool-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with Tool</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/lamp-installation-on-Arch">Lamp Installation on Arch</a> <span class="text-muted">- November 03, 2013</span></li>
-        
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/easiest-way-to-install-lamp-on-ubuntu">Easiest Way To Install Lamp On Ubuntu</a> <span class="text-muted">- November 02, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE-FMDBTool">开源项目：FMDBTool</a> <span class="text-muted">- July 29, 2016</span></li>
         
       </ul>
     </div>
   
     
-    <div class="tab-pane" id="mariadb-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with mariadb</h2>
+    <div class="tab-pane" id="UIScrollView-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with UIScrollView</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/lamp-installation-on-Arch">Lamp Installation on Arch</a> <span class="text-muted">- November 03, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E4%B8%80%E4%B8%AA%E9%AB%98%E5%BA%A6%E5%AE%9A%E5%88%B6%E7%9A%84%E4%B9%9D%E5%AE%AB%E6%A0%BC">一个高度定制的九宫格</a> <span class="text-muted">- July 07, 2016</span></li>
         
       </ul>
     </div>
   
     
-    <div class="tab-pane" id="mysql-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with mysql</h2>
+    <div class="tab-pane" id="UIView-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with UIView</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/lamp-installation-on-Arch">Lamp Installation on Arch</a> <span class="text-muted">- November 03, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E4%B8%80%E4%B8%AA%E9%AB%98%E5%BA%A6%E5%AE%9A%E5%88%B6%E7%9A%84%E4%B9%9D%E5%AE%AB%E6%A0%BC">一个高度定制的九宫格</a> <span class="text-muted">- July 07, 2016</span></li>
         
       </ul>
     </div>
   
     
-    <div class="tab-pane" id="php-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with php</h2>
+    <div class="tab-pane" id="layer-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with layer</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/lamp-installation-on-Arch">Lamp Installation on Arch</a> <span class="text-muted">- November 03, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E8%A7%86%E5%9B%BE%E9%81%AE%E7%BD%A9%E7%9A%84%E5%AE%9E%E7%8E%B0">视图遮罩的实现</a> <span class="text-muted">- July 19, 2016</span></li>
         
       </ul>
     </div>
   
     
-    <div class="tab-pane" id="setup-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with setup</h2>
+    <div class="tab-pane" id="九宫格-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with 九宫格</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/lamp-installation-on-Arch">Lamp Installation on Arch</a> <span class="text-muted">- November 03, 2013</span></li>
-        
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/easiest-way-to-install-lamp-on-ubuntu">Easiest Way To Install Lamp On Ubuntu</a> <span class="text-muted">- November 02, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E4%B8%80%E4%B8%AA%E9%AB%98%E5%BA%A6%E5%AE%9A%E5%88%B6%E7%9A%84%E4%B9%9D%E5%AE%AB%E6%A0%BC">一个高度定制的九宫格</a> <span class="text-muted">- July 07, 2016</span></li>
         
       </ul>
     </div>
   
     
-    <div class="tab-pane" id="tasksel-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with tasksel</h2>
+    <div class="tab-pane" id="企业级应用-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with 企业级应用</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/easiest-way-to-install-lamp-on-ubuntu">Easiest Way To Install Lamp On Ubuntu</a> <span class="text-muted">- November 02, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93">企业级应用无法下载安装问题总结</a> <span class="text-muted">- August 05, 2016</span></li>
         
       </ul>
     </div>
   
     
-    <div class="tab-pane" id="ubuntu-ref">
-      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with ubuntu</h2>
+    <div class="tab-pane" id="凭证验证-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with 凭证验证</h2>
       <ul class="list-unstyled">
         
-          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="http://ankanbiswas.in/easiest-way-to-install-lamp-on-ubuntu">Easiest Way To Install Lamp On Ubuntu</a> <span class="text-muted">- November 02, 2013</span></li>
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91">苹果App内购的一些坑</a> <span class="text-muted">- July 12, 2016</span></li>
+        
+      </ul>
+    </div>
+  
+    
+    <div class="tab-pane" id="应用内购-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with 应用内购</h2>
+      <ul class="list-unstyled">
+        
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91">苹果App内购的一些坑</a> <span class="text-muted">- July 12, 2016</span></li>
+        
+      </ul>
+    </div>
+  
+    
+    <div class="tab-pane" id="应用安装-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with 应用安装</h2>
+      <ul class="list-unstyled">
+        
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93">企业级应用无法下载安装问题总结</a> <span class="text-muted">- August 05, 2016</span></li>
+        
+      </ul>
+    </div>
+  
+    
+    <div class="tab-pane" id="遮罩-ref">
+      <h2 style="margin-top: 0px;font-weight:bold;font-family: ubuntu;">Posts tagged  with 遮罩</h2>
+      <ul class="list-unstyled">
+        
+          <li style="line-height: 35px;"><a style="font-family: 'Raleway', sans-serif; color:#333;font-weight:bold" href="/%E8%A7%86%E5%9B%BE%E9%81%AE%E7%BD%A9%E7%9A%84%E5%AE%9E%E7%8E%B0">视图遮罩的实现</a> <span class="text-muted">- July 19, 2016</span></li>
         
       </ul>
     </div>
@@ -317,8 +371,8 @@ border: 3px solid #FFF;" />
 
 <footer class="navbar navbar-default">
     <div class="container">
-      <p class="navbar-text pull-left">Some rights reserved &copy; 2015 Ankan Biswas. </br>
-      Created using <a class="navbar-button" href="https://github.com/twbs/bootstrap">Bootstrap3</a> and <a class="navbar-button" href="https://github.com/jekyll/jekyll">Jekyll</a>. Theme : <a class="navbar-button" href="#">uno-dbyll</a> by talk2ankan.
+      <p class="navbar-text pull-left">Some rights reserved &copy; 2016 Donghai Cheng. </br>
+      Created using <a class="navbar-button" href="https://github.com/twbs/bootstrap">Bootstrap3</a> and <a class="navbar-button" href="https://github.com/jekyll/jekyll">Jekyll</a>. Theme : <a class="navbar-button" href="https://github.com/talk2ankan/uno-dbyll">uno-dbyll</a> by talk2ankan.
  </p>
  </div>
   </footer>
@@ -329,12 +383,12 @@ border: 3px solid #FFF;" />
     var disqus_shortname = 'talk2ankan'; // required: replace example with your forum shortname
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
+    <!-- (function () {
         var s = document.createElement('script'); s.async = true;
         s.type = 'text/javascript';
         s.src = '//' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
+    }());-->
     </script>
     
 </body>

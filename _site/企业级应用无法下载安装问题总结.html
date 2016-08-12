@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>企业级应用无法下载安装问题总结</title>
+
+	
+	<meta name="description" content="企业级应用因为可以无限制分发安装，不需要上appstore，所以app升级下载方便；我做过很多企业应用，这里总结下企业应用不能下载安装的原因。">
+	
+
+	<meta name="author" content="Donghai Cheng">
+
+		<!-- Enable responsive viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="/assets/resources/syntax/syntax.css">
+<link rel="stylesheet" type="text/css" href="/assets/resources/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/resources/font-awesome/css/font-awesome.min.css">
+<link rel="icon" href="header_image.png">
+
+<link href='http://fonts.useso.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="http://ajax.useso.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/resources/bootstrap/js/bootstrap.js"></script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+if(window.location.href=="http://blog.ankanbiswas.in/uno-dbyll/")
+{
+$("#sidebar").css({width:'100%'});
+$("#btnblog").click(function(){
+$("#sidebar").animate({width:'33.3333%'},'slow');
+});
+}
+});
+	
+</script>
+	</head>
+<body>
+
+<nav class="navbar navbar-default visible-xs" role="navigation">
+
+
+ <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarHeaderCollapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a type="button" class="navbar-toggle nav-link" href="http://github.com/chengdonghai">
+        <i class="fa fa-github"></i>
+      </a>
+      
+      
+       
+      <a type="button" class="navbar-toggle nav-link" href="mailto:18658800949@189.cn">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+     
+
+     
+      <a class="navbar-brand" href="">
+        <img src="header_image.png" class="img-circle" style="height:35px;width:35px"/>
+        cheng
+      </a>
+    </div>
+    
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbarHeaderCollapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="">Home</a></li>
+        <li><a href="/categories.html">Categories</a></li>
+        <li><a href="/tags.html">Tags</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+</nav>
+
+  <!-- nav-menu-dropdown -->
+  <div class="btn-group hidden-xs" id="nav-menu">
+   <button type="button" class="btn btn-default dropdown-toggle pull-right" data-toggle="dropdown">
+     <i class="fa fa-bars"></i>
+   </button>
+   <ul class="dropdown-menu pull-right" role="menu">
+     <li><a href=""><i class="fa fa-home"></i> Home</a></li>
+     <li><a href="/categories.html"><i class="fa fa-folder"></i> Categories</a></li>
+     <li><a href="/tags.html"><i class="fa fa-tags"></i> Tags</a></li>
+     <li class="divider"></li>
+     <li><a href="#"><i class="fa fa-arrow-up"></i> Top of Page</a></li>
+   </ul>
+ </div>
+
+<div class="col-sm-4 sidebar hidden-xs" id="sidebar">
+		<! -- sidebar.html -->
+<header class="sidebar-header" role="banner">
+	<a href="./">
+		<img src="header_image.png" class="img-circle" style="border-radius: 50%;
+border: 3px solid #FFF; height:150px;width:150px" />
+	</a>
+	<h4 class="title">
+        <a href="./">cheng</a>
+    </h4>
+         <p style="font-size:20px;">iOS开发者</p>
+    <hr class="hr-line">
+<h3 class="title">
+         <p style="font-size:18px">不断学习，不断进步。</p>
+    </h3>
+
+    <hr class="hr-line1">
+ <h3 class="title" style="font-size:30px;">
+ 
+       
+      <a type="button" class="social1" href="http://github.com/chengdonghai">
+        <i class="fa fa-github"></i>
+      </a>
+      
+       
+      <a type="button" class="social2" href="http://weibo.com/u/2367910750">
+        <i class="fa fa-weibo"></i>
+      </a>
+      
+     
+      
+      <a type="button" class="social3" href="mailto:18658800949@189.cn">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+       <!--<hr class="hr-line1">
+      <a type="button"  style="font-size:20px; padding:7px; padding-left:13px;padding-right:13px;margin-right: 10px;" class="social3 " id="btnblog" href="/#blog">
+        <i class="fa" style="font-weight:bold;letter-spacing:0; font-family:arial,sans-serif">Blog</i>
+      </a>-->
+      </h3>
+
+</header>
+
+
+
+<! -- sidebar.html end -->
+
+	</div>
+
+<div class="col-sm-8 col-sm-offset-4" id="container">
+  
+<div class="page-header">
+  <h1>企业级应用无法下载安装问题总结 </h1>
+</div>
+  
+<article>
+
+  <div class="col-sm-10">
+   <span class="post-date">
+       2016年08月05日 16:18
+      
+   </span>
+   
+    <div class="article_body" id="article_body">
+    <p>企业级应用因为可以无限制分发安装，不需要上appstore，所以app升级下载方便；我做过很多企业应用，这里总结下企业应用不能下载安装的原因：</p>
+
+<ul>
+<li>企业证书过期，过期之后的证书能下载但是不能安装应用；</li>
+<li>网络原因，由于苹果服务器或者网络原因导致下载失败；</li>
+<li>下载相关的plist配置文件有问题，分发应用时，需要上传一个plist配置文件，主要配置app的一些信息，比如app 名字、icon，ipa下载地址、bundle-version、bundle-identifier等等，下面给一个plist模版：
+<code class="prettyprint">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+&lt;key&gt;items&lt;/key&gt;
+&lt;array&gt;
+    &lt;dict&gt;
+        &lt;key&gt;assets&lt;/key&gt;
+        &lt;array&gt;
+            &lt;dict&gt;
+                &lt;key&gt;kind&lt;/key&gt;
+                &lt;string&gt;software-package&lt;/string&gt;
+                &lt;key&gt;url&lt;/key&gt;
+                &lt;string&gt;ipa下载地址&lt;/string&gt;
+            &lt;/dict&gt;
+            &lt;dict&gt;
+                &lt;key&gt;kind&lt;/key&gt;
+                &lt;string&gt;display-image&lt;/string&gt;
+                &lt;key&gt;needs-shine&lt;/key&gt;
+                &lt;false/&gt;
+                &lt;key&gt;url&lt;/key&gt;
+                &lt;string&gt;icon地址&lt;/string&gt;
+            &lt;/dict&gt;
+        &lt;/array&gt;
+        &lt;key&gt;metadata&lt;/key&gt;
+        &lt;dict&gt;
+            &lt;key&gt;bundle-identifier&lt;/key&gt;
+            &lt;string&gt;com.bdu.test.General&lt;/string&gt;
+            &lt;key&gt;bundle-version&lt;/key&gt;
+            &lt;string&gt;1.4.1&lt;/string&gt;
+            &lt;key&gt;kind&lt;/key&gt;
+            &lt;string&gt;software&lt;/string&gt;
+            &lt;key&gt;title&lt;/key&gt;
+            &lt;string&gt;app name&lt;/string&gt;
+        &lt;/dict&gt;
+    &lt;/dict&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></li>
+<li>ios7以上的下载必须是https协议的，如果是http协议就不能下载安装了。</li>
+<li>在蒲公英上看到一个ios8的bug：在 iOS 8 系统（或 iOS 8 以上版本）上安装应用时，有些用户可能会遇到无法安装的问题，这是因为 iOS 8（或 iOS 8 后续版本） 的一个 Bug 导致的。关于这个Bug，详情可见 <a href="http://stackoverflow.com/questions/25772664/enterprise-app-update-distribution-on-ios-8">Stackoverflow 上的讨论</a>。生成 manifest.plist 文件时，会在其中的 bundle-identifier 一项中，增加一个后缀，以便 iOS 8 的设备可以正常安装应用。例如：
+<code class="prettyprint">
+&lt;key&gt;bundle-identifier&lt;/key&gt;
+&lt;string&gt;com.mycom.MyApp&lt;/string&gt;
+</code>
+修改为类似如下结果：
+<code class="prettyprint">
+&lt;key&gt;bundle-identifier&lt;/key&gt;
+&lt;string&gt;com.mycom.MyApp.37278104&lt;/string&gt;
+</code>
+之前在工作中遇到个很坑人的问题，应用ipa包用itools能安装成功，说明证书没问题；但是上传到服务器，通过服务器下载安装却不成功，所以怀疑是服务器问题或者plist没配置正确，于是检查plist发现配置的bundle identifier包含一个空格，导致通过服务器能下载不能安装，这个问题在ios较高系统却没问题（被坑惨了）。</li>
+</ul>
+
+<p>一般解决这种问题的方法，可以用排除法，先排除证书问题，再通过抓包排出网络问题，最后在抓包时可以判断时下载时出了问题还是在安装时出了问题，如果是下载出了问题，有可能是plist配置的ipa下载地址不对或者服务器有问题，如果是安装出了问题可能就需要再检查下plist配置了。</p>
+
+<blockquote>
+<p>最后总结一句话，出了问题总是有原因的，只是大家没找到而已，积极面对每一个问题，才能更接近找到原因。</p>
+</blockquote>
+
+    </div>
+
+    
+    <ul class="tag_box list-unstyled list-inline">
+      <li><i class="fa fa-folder-open"></i></li>
+      
+      
+       
+        <li><a href="/categories.html#iOS-ref">
+          iOS <span>(5)</span>
+          
+        </a></li>
+      
+      
+    </ul>
+      
+
+    
+    <ul class="list-inline">
+      <li><i class="fa fa-tags"></i></li>
+      
+      
+       
+        <li>
+          <a href="/tags.html#企业级应用-ref">
+          企业级应用 <span>(1)</span>
+          ,
+          </a>
+        </li>
+       
+        <li>
+          <a href="/tags.html#应用安装-ref">
+          应用安装 <span>(1)</span>
+          
+          </a>
+        </li>
+      
+      
+      
+    </ul>
+      
+
+    <hr>
+
+    <div>
+      <section class="share col-sm-6">
+        <h4 class="section-title">Share Post</h4>
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=企业级应用无法下载安装问题总结"
+           onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter fa-lg"></i>
+          Twitter
+        </a>
+        <a class="btn btn-default btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php"
+           onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook fa-lg"></i>
+          Facebook
+        </a>
+        <a class="btn btn-default btn-sm gplus"
+           onclick="window.open('https://plus.google.com/share?url='+window.location.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus fa-lg"></i>
+          Google+
+        </a>
+      </section>
+
+      <section class="col-sm-6 author">
+        <img src="header_image.png" style="height:100px;width:100px;" class="img-rounded author-image" />
+        <h4 class="section-title author-name"><b>cheng</b><br/><p style="color:#888;font-size:13px;">iOS开发者</p></h4>
+        <p class="author-bio">不断学习，不断进步。</p>
+      </section>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <ul class="pager">
+      
+      <li class="previous"><a href="/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE-FMDBTool" title="开源项目：FMDBTool">&larr; Previous</a></li>
+      
+      
+      <li class="next disabled"><a>Next &rarr;</a>
+      
+    </ul>
+
+  
+  </div>
+  
+       <div id="disqus_thread"></div>
+       <!--
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'talk2ankan'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>-->
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+    
+</article>
+<div class="clearfix"></div>
+
+
+<footer class="navbar navbar-default">
+    <div class="container">
+      <p class="navbar-text pull-left">Some rights reserved &copy; 2016 Donghai Cheng. </br>
+      Created using <a class="navbar-button" href="https://github.com/twbs/bootstrap">Bootstrap3</a> and <a class="navbar-button" href="https://github.com/jekyll/jekyll">Jekyll</a>. Theme : <a class="navbar-button" href="https://github.com/talk2ankan/uno-dbyll">uno-dbyll</a> by talk2ankan.
+ </p>
+ </div>
+  </footer>
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'talk2ankan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    <!-- (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());-->
+    </script>
+    
+</body>
+</html>
