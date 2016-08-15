@@ -178,94 +178,95 @@ border: 3px solid #FFF; height:150px;width:150px" />
 </ol>
 
 <h3 id="2">2、创建视图并设置代理和布局模式</h3>
-<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="p">-(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nf">sudokuView</span>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="n">sudokuView</span>
 <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">_sudokuView</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">_sudokuView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">BASudokuView</span> <span class="n">alloc</span><span class="p">]</span><span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CGRectGetWidth</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">),</span> <span class="nb">self</span><span class="p">.</span><span class="n">sudoKuViewHeight</span><span class="p">)];</span>
-        <span class="n">_sudokuView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span><span class="p">[</span><span class="bp">UIColor</span> <span class="n">lightGrayColor</span><span class="p">];</span>
+        <span class="n">_sudokuView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">BASudokuView</span> <span class="nf">alloc</span><span class="p">]</span><span class="nf">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CGRectGetWidth</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">),</span> <span class="n">self</span><span class="p">.</span><span class="n">sudoKuViewHeight</span><span class="p">)];</span>
+        <span class="n">_sudokuView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span><span class="p">[</span><span class="n">UIColor</span> <span class="nf">lightGrayColor</span><span class="p">];</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">_sudokuView</span><span class="p">;</span>
 
 <span class="p">}</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span>
 <span class="p">{</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-    <span class="nb">self</span><span class="p">.</span><span class="n">edgesForExtendedLayout</span> <span class="o">=</span> <span class="n">UIRectEdgeNone</span><span class="p">;</span>
-    <span class="nb">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
-    <span class="nb">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">.</span><span class="n">dataSource</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
-    <span class="nb">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">.</span><span class="n">pageMode</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">pageMode</span><span class="p">;</span>
-    <span class="nb">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">.</span><span class="n">accessMode</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">accessMode</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">super</span> <span class="nf">viewDidLoad</span><span class="p">];</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">edgesForExtendedLayout</span> <span class="o">=</span> <span class="n">UIRectEdgeNone</span><span class="p">;</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">.</span><span class="n">dataSource</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">.</span><span class="n">pageMode</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">pageMode</span><span class="p">;</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">.</span><span class="n">accessMode</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">accessMode</span><span class="p">;</span>
 
-    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">self</span><span class="p">.</span><span class="n">sudokuView</span><span class="p">];</span>
 
-    <span class="c1">// Do any additional setup after loading the view.</span>
-<span class="p">}</span>
+    <span class="c1">// Do any additional setup after loading the view.
+</span><span class="p">}</span>
+
 </code></pre></div>
 <h3 id="3-pagecontrol">3、在回调代理里可以自定义格子视图并且设置每个格子的宽度和高度以及它们之间的间距，左边距、右边距、上边距、下边距以及pageControl的样式等</h3>
-<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="c1">//设置格子的个数</span>
-<span class="p">-(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nf">numberOfGridViewInSudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="c1">//设置格子的个数
+</span><span class="k">-</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">numberOfGridViewInSudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="mi">9</span><span class="p">;</span>
 
 <span class="p">}</span>
-<span class="c1">//设置最大列数</span>
-<span class="p">-(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nf">numberOfMaxColumnInSudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<span class="c1">//设置最大列数
+</span><span class="k">-</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">numberOfMaxColumnInSudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">pageMode</span> <span class="o">==</span> <span class="n">BASudokuViewPageModeHorizontalNoPaging</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">pageMode</span> <span class="o">==</span> <span class="n">BASudokuViewPageModeHorizontalNoPaging</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="mi">5</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置最大行数</span>
-<span class="p">-(</span><span class="bp">NSInteger</span><span class="p">)</span><span class="nf">numberOfMaxRowsInSudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<span class="c1">//设置最大行数
+</span><span class="k">-</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">numberOfMaxRowsInSudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">pageMode</span> <span class="o">==</span> <span class="n">BASudokuViewPageModeVertical</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">pageMode</span> <span class="o">==</span> <span class="n">BASudokuViewPageModeVertical</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置左边距</span>
-<span class="p">-(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">leftMarginOfGrid:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<span class="c1">//设置左边距
+</span><span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">leftMarginOfGrid</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="mf">10.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置上边距</span>
-<span class="p">-(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">topMarginOfGrid:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<span class="c1">//设置上边距
+</span><span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">topMarginOfGrid</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="mf">10.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置下边距</span>
-<span class="p">-(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">bottomMarginOfGrid:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<span class="c1">//设置下边距
+</span><span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">bottomMarginOfGrid</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="mf">10.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置右边距</span>
-<span class="p">-(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">rightMarginOfGrid:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<span class="c1">//设置右边距
+</span><span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">rightMarginOfGrid</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="mf">10.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置横向间距</span>
-<span class="p">-(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">horizontalSpacingBetweenGrid:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<span class="c1">//设置横向间距
+</span><span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">horizontalSpacingBetweenGrid</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="mf">10.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置纵向间距</span>
-<span class="p">-(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">verticalSpacingBetweenGrid:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
+<span class="c1">//设置纵向间距
+</span><span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">verticalSpacingBetweenGrid</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="mf">10.0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置格子宽度</span>
-<span class="p">-(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">sudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">widthForGridAtIndexPath:</span><span class="p">(</span><span class="n">BAIndexPath</span><span class="p">)</span><span class="nv">indexPath</span>
+<span class="c1">//设置格子宽度
+</span><span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">sudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">widthForGridAtIndexPath</span><span class="p">:(</span><span class="n">BAIndexPath</span><span class="p">)</span><span class="nv">indexPath</span>
 <span class="p">{</span>
      <span class="k">return</span> <span class="mi">90</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置格子高度</span>
-<span class="p">-(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">sudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">heightForGridAtIndexPath:</span><span class="p">(</span><span class="n">BAIndexPath</span><span class="p">)</span><span class="nv">indexPath</span>
+<span class="c1">//设置格子高度
+</span><span class="k">-</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">sudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">heightForGridAtIndexPath</span><span class="p">:(</span><span class="n">BAIndexPath</span><span class="p">)</span><span class="nv">indexPath</span>
 <span class="p">{</span>
     <span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="c1">//设置pageControl的样式，只适用于第一种布局模式</span>
-<span class="p">-(</span><span class="n">PageControlStyle</span><span class="p">)</span><span class="nf">sudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">styleOfPageControl:</span><span class="p">(</span><span class="n">StyledPageControl</span> <span class="o">*</span><span class="p">)</span><span class="nv">pageControl</span>
+<span class="c1">//设置pageControl的样式，只适用于第一种布局模式
+</span><span class="k">-</span><span class="p">(</span><span class="n">PageControlStyle</span><span class="p">)</span><span class="nf">sudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">styleOfPageControl</span><span class="p">:(</span><span class="n">StyledPageControl</span> <span class="o">*</span><span class="p">)</span><span class="nv">pageControl</span>
 <span class="p">{</span>
     <span class="n">pageControl</span><span class="p">.</span><span class="n">gapWidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="n">pageControl</span><span class="p">.</span><span class="n">squareSize</span> <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
@@ -274,41 +275,42 @@ border: 3px solid #FFF; height:150px;width:150px" />
     <span class="k">return</span> <span class="n">PageControlStyleSquare</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="p">-(</span><span class="bp">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">sudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">normalColorInPageControl:</span><span class="p">(</span><span class="n">StyledPageControl</span> <span class="o">*</span><span class="p">)</span><span class="nv">pageControl</span>
+<span class="k">-</span><span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">sudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">normalColorInPageControl</span><span class="p">:(</span><span class="n">StyledPageControl</span> <span class="o">*</span><span class="p">)</span><span class="nv">pageControl</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="n">blueColor</span><span class="p">];</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">blueColor</span><span class="p">];</span>
 <span class="p">}</span>
-<span class="p">-(</span><span class="bp">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">sudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">selectedColorInPageControl:</span><span class="p">(</span><span class="n">StyledPageControl</span> <span class="o">*</span><span class="p">)</span><span class="nv">pageControl</span>
+<span class="k">-</span><span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">sudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">selectedColorInPageControl</span><span class="p">:(</span><span class="n">StyledPageControl</span> <span class="o">*</span><span class="p">)</span><span class="nv">pageControl</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="n">orangeColor</span><span class="p">];</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">orangeColor</span><span class="p">];</span>
 <span class="p">}</span>
 
-<span class="c1">//创建每个格子视图gridView</span>
-<span class="p">-(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nf">sudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">gridViewAtPath:</span><span class="p">(</span><span class="n">BAIndexPath</span><span class="p">)</span><span class="nv">indexPath</span>
+<span class="c1">//创建每个格子视图gridView
+</span><span class="k">-</span><span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nf">sudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">gridViewAtPath</span><span class="p">:(</span><span class="n">BAIndexPath</span><span class="p">)</span><span class="nv">indexPath</span>
 <span class="p">{</span>
-    <span class="bp">NSInteger</span> <span class="n">index</span> <span class="o">=</span> <span class="n">BAIndex</span><span class="p">(</span><span class="n">indexPath</span><span class="p">,</span> <span class="nb">self</span><span class="p">,</span> <span class="n">sudokuView</span><span class="p">);</span>
-    <span class="bp">UIView</span> <span class="o">*</span><span class="n">gridView</span> <span class="o">=</span><span class="p">[[</span><span class="bp">UIView</span> <span class="n">alloc</span><span class="p">]</span><span class="n">init</span><span class="p">];</span>
+    <span class="n">NSInteger</span> <span class="n">index</span> <span class="o">=</span> <span class="n">BAIndex</span><span class="p">(</span><span class="n">indexPath</span><span class="p">,</span> <span class="n">self</span><span class="p">,</span> <span class="n">sudokuView</span><span class="p">);</span>
+    <span class="n">UIView</span> <span class="o">*</span><span class="n">gridView</span> <span class="o">=</span><span class="p">[[</span><span class="n">UIView</span> <span class="nf">alloc</span><span class="p">]</span><span class="nf">init</span><span class="p">];</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">gridView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="n">orangeColor</span><span class="p">];</span>
+        <span class="n">gridView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">orangeColor</span><span class="p">];</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">gridView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="n">redColor</span><span class="p">];</span>
+        <span class="n">gridView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">redColor</span><span class="p">];</span>
     <span class="p">}</span> <span class="k">else</span>  <span class="p">{</span>
-        <span class="n">gridView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIColor</span> <span class="n">greenColor</span><span class="p">];</span>
+        <span class="n">gridView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">greenColor</span><span class="p">];</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">gridView</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">//每个格子点击事件</span>
-<span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sudokuView:</span><span class="p">(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">didSelectGridAtIndexPath:</span><span class="p">(</span><span class="n">BAIndexPath</span><span class="p">)</span><span class="nv">indexPath</span>
+<span class="c1">//每个格子点击事件
+</span><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sudokuView</span><span class="p">:(</span><span class="n">BASudokuView</span> <span class="o">*</span><span class="p">)</span><span class="nv">sudokuView</span> <span class="nf">didSelectGridAtIndexPath</span><span class="p">:(</span><span class="n">BAIndexPath</span><span class="p">)</span><span class="nv">indexPath</span>
 <span class="p">{</span>
 
-    <span class="bp">NSInteger</span> <span class="n">row</span> <span class="o">=</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">;</span>
-    <span class="bp">NSInteger</span> <span class="n">column</span> <span class="o">=</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">column</span><span class="p">;</span>
-    <span class="bp">NSInteger</span> <span class="n">page</span> <span class="o">=</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">page</span><span class="p">;</span>
+    <span class="n">NSInteger</span> <span class="n">row</span> <span class="o">=</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">;</span>
+    <span class="n">NSInteger</span> <span class="n">column</span> <span class="o">=</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">column</span><span class="p">;</span>
+    <span class="n">NSInteger</span> <span class="n">page</span> <span class="o">=</span> <span class="n">indexPath</span><span class="p">.</span><span class="n">page</span><span class="p">;</span>
 
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;row:%li,column:%li,page:%li&quot;</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">row</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">column</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">page</span><span class="p">);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"row:%li,column:%li,page:%li"</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">row</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">column</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">page</span><span class="p">);</span>
 <span class="p">}</span>
+
 </code></pre></div>
 <hr>
 
