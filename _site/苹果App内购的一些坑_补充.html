@@ -4,10 +4,10 @@
 
 	<head>
 
-		<title>苹果App内购的一些坑</title>
+		<title>苹果App内购的一些坑_补充</title>
 
 	
-	<meta name="description" content="苹果的凭证验证有两种：本地验证和服务器验证，实际上本地验证相当不安全，所以服务验证是必须的。">
+	<meta name="description" content="苹果内用内购的安全问题相当严重。">
 	
 
 	<meta name="author" content="Donghai Cheng">
@@ -159,14 +159,14 @@ border: 3px solid #FFF; height:150px;width:150px" />
 <div class="col-sm-8 col-sm-offset-4" id="container">
   
 <div class="page-header">
-  <h1>苹果App内购的一些坑 </h1>
+  <h1>苹果App内购的一些坑_补充 </h1>
 </div>
   
 <article>
 
   <div class="col-sm-10">
    <span class="post-date">
-       2016年07月12日 12:08
+       2016年08月16日 10:08
       
    </span>
    
@@ -178,26 +178,23 @@ border: 3px solid #FFF; height:150px;width:150px" />
    </div>
    
     <div class="article_body" id="article_body">
-    <p>苹果的应用内购凭证校验步骤见官网：<a href="https://developer.apple.com/library/prerelease/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html#//apple_ref/doc/uid/TP40010573-CH104-SW1">苹果app内购凭证校验</a>，苹果的凭证验证有两种：</p>
+    <p>前段时间发表了一篇<a href="https://chengdonghai.github.io/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91">关于苹果内购的安全问题的文章</a>，也是因为最近遇到了新的关于苹果内购的问题；现在继续做个补充。</p>
 
-<ol>
-<li>Validating Receipts With the App Store 通过访问苹果接口进行验证。</li>
-<li>Validating Receipts Locally 本地代码解码进行验证</li>
-</ol>
+<p>由于个人经验不足，对苹果校验的安全性没有太过关注，以致于作弊者破解了我们的苹果内购；我已经被这个折腾了一个月[抓狂]，作弊者通过很多方式跳过苹果的付款步骤直接获得虚拟产品，达到免费获取虚拟产品的目的。</p>
 
-<p>可以参考一个第三方应用内购库<a href="https://github.com/robotmedia/RMStore">RMStore</a>，这个库帮你省去了很多内购接入的麻烦。</p>
+<p>其中最让人胆寒的方式就是：作弊者可以自主伪造一个苹果凭证并且通过了苹果的服务器验证。</p>
 
-<hr>
+<h2 id="oh-my-god">Oh my God，那应该如何修补这个漏洞？</h2>
 
-<p>其中第二种验证方式存在被破解的风险，因为这种验证是本地进行的，破解者可以通过伪造凭证进行破解，甚至通过一些内购破解插件来破解,所以安全考虑第一种方式是必须的，第二种验证可以同时存在（先进行本地，再请求服务器验证）。</p>
+<p>对于这种伪造的凭证，虽然能通过苹果校验，也就是说返回的json的状态是成功的状态（state＝0），但是仔细察看会发现数据是有缺失的，我们注意到返回的json报文都会有in_app节点，这个节点是一个数组，数组里包含字典，而这个字典一般会记录本次充值的相关信息，比如充值的产品id，充值的trasaction_id,正常的凭证校验返回的in_app节点是有数据的，而伪造的凭证校验返回的json中in_app节点是空的,我们可以根据这个判定是否是非法凭证。</p>
 
-<h2 id="1">1.这样就安全了吗？</h2>
+<p>这可能是苹果凭证校验的一个漏洞，而作弊者恰恰利用了这个漏洞。</p>
 
-<p>一般还需要苹果的付款订单和我们自己后台的订单进行一对一约束，一次付款只能成功一次后台订单，这个需要自己后台人员去做限制，一对多和多对一都是不正确的。</p>
+<p>如果想知道苹果内购返回的josn格式，请<a href="https://developer.apple.com/library/prerelease/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ReceiptFields.html#//apple_ref/doc/uid/TP40010573-CH106-SW1">前往官文档</a>。</p>
 
-<h2 id="2">2.用户付款成功了，但是苹果服务器校验失败了怎么办？</h2>
-
-<p>验证过程中如果由于网络问题失败或者苹果服务异常等原因导致验证失败，比如返回的报文格式不是json格式，则需要提供重试功能给用户重试，或者将凭证保存到后台，后台人员通过第一种方式重新验证。</p>
+<blockquote>
+<p>最后总结一句：天外有天，人外有人，与天斗，其乐无穷：与地斗，其乐无穷；与人斗，其乐无穷，与黑客斗其乐无穷。</p>
+</blockquote>
 
 <hr>
 
@@ -252,7 +249,7 @@ border: 3px solid #FFF; height:150px;width:150px" />
 
     <hr>
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key=/苹果App内购的一些坑 data-title=苹果App内购的一些坑 data-url=https://chengdonghai.github.io/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91 ></div>
+    <div class="ds-thread" data-thread-key=/苹果App内购的一些坑_补充 data-title=苹果App内购的一些坑_补充 data-url=https://chengdonghai.github.io/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91_%E8%A1%A5%E5%85%85 ></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -270,7 +267,7 @@ border: 3px solid #FFF; height:150px;width:150px" />
     <div>
       <section class="share col-sm-6">
         <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=苹果App内购的一些坑"
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=苹果App内购的一些坑_补充"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -303,10 +300,10 @@ border: 3px solid #FFF; height:150px;width:150px" />
 
     <ul class="pager">
       
-      <li class="previous"><a href="/%E4%B8%80%E4%B8%AA%E9%AB%98%E5%BA%A6%E5%AE%9A%E5%88%B6%E7%9A%84%E4%B9%9D%E5%AE%AB%E6%A0%BC" title="一个高度定制的九宫格">&larr; 上一篇</a></li>
+      <li class="previous"><a href="/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93" title="企业级应用无法下载安装问题总结">&larr; 上一篇</a></li>
       
       
-      <li class="next"><a href="/%E8%A7%86%E5%9B%BE%E9%81%AE%E7%BD%A9%E7%9A%84%E5%AE%9E%E7%8E%B0" title="视图遮罩的实现">下一篇 &rarr;</a></li>
+      <li class="next disabled"><a>下一篇 &rarr;</a>
       
     </ul>
 
