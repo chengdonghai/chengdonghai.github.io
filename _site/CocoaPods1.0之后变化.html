@@ -4,10 +4,10 @@
 
 	<head>
 
-		<title>苹果App内购的一些坑_补充</title>
+		<title>CocoaPods 1.0之后变化</title>
 
 	
-	<meta name="description" content="苹果内用内购的安全问题相当严重。">
+	<meta name="description" content="Cocoapods 1.0之后 Podfile配置需要增加target。">
 	
 
 	<meta name="author" content="Donghai Cheng">
@@ -159,43 +159,34 @@ border: 3px solid #FFF; height:150px;width:150px" />
 <div class="col-sm-8 col-sm-offset-4" id="container">
   
 <div class="page-header">
-  <h1>苹果App内购的一些坑_补充 </h1>
+  <h1>CocoaPods 1.0之后变化 </h1>
 </div>
   
 <article>
 
   <div class="col-sm-10">
    <span class="post-date">
-       2016年08月16日 10:08
+       2016年08月18日 16:08
       
    </span>
    
-   <br/><br/>
-   <div>
-    <p style="text-align:center;">
-   <img src=/assets/media/keng.jpg  ></img>
-   </p>
-   </div>
-   
     <div class="article_body" id="article_body">
-    <p>前段时间发表了一篇<a href="https://chengdonghai.github.io/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91">关于苹果内购的安全问题的文章</a>，也是因为最近遇到了新的关于苹果内购的问题；现在继续做个补充。</p>
+    <h4 id="1-cocoapods-1-0-podfile-target">1、Cocoapods 1.0之后，Podfile配置需要增加target:</h4>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">target</span> <span class="s">'MyApp'</span> <span class="n">do</span>
+  <span class="n">pod</span> <span class="s">'Alamofire'</span><span class="p">,</span> <span class="s">'~&gt; 3.0'</span>
+<span class="n">end</span>
+</code></pre></div>
+<p>加了之后编译成的libPods.a文件会变成libPods-MyApp.a。</p>
 
-<p>由于个人经验不足，对苹果校验的安全性没有太过关注，以致于作弊者破解了我们的苹果内购；我已经被这个折腾了一个月[抓狂]，作弊者通过很多方式跳过苹果的付款步骤直接获得虚拟产品，达到免费获取虚拟产品的目的。</p>
+<p>其中MyApp为项目中target名称，否则会编译错误。</p>
 
-<p>其中最让人胆寒的方式就是：作弊者可以自主伪造一个苹果凭证并且通过了苹果的服务器验证。</p>
+<h4 id="2-use_frameworks-framework-a">2、如果添加use_frameworks!后编译的第三方包是framework而不是.a包。</h4>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">target</span> <span class="s">'MyApp'</span> <span class="n">do</span>
+<span class="n">use_frameworks</span><span class="err">!</span>
+  <span class="n">pod</span> <span class="s">'Alamofire'</span><span class="p">,</span> <span class="s">'~&gt; 3.0'</span>
+<span class="n">end</span>
 
-<h2 id="oh-my-god">Oh my God，那应该如何修补这个漏洞？</h2>
-
-<p>对于这种伪造的凭证，虽然能通过苹果校验，也就是说返回的json的状态是成功的状态（state＝0），但是仔细察看会发现数据是有缺失的，我们注意到返回的json报文都会有in_app节点，这个节点是一个数组，数组里包含字典，而这个字典一般会记录本次充值的相关信息，比如充值的产品id，充值的trasaction_id,正常的凭证校验返回的in_app节点是有数据的，而伪造的凭证校验返回的json中in_app节点是空的,我们可以根据这个判定是否是非法凭证。</p>
-
-<p>这可能是苹果凭证校验的一个漏洞，而作弊者恰恰利用了这个漏洞。</p>
-
-<p>如果想知道苹果内购返回的josn格式，请<a href="https://developer.apple.com/library/prerelease/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ReceiptFields.html#//apple_ref/doc/uid/TP40010573-CH106-SW1">前往官文档</a>。</p>
-
-<blockquote>
-<p>最后总结一句：天外有天，人外有人，与天斗，其乐无穷：与地斗，其乐无穷；与人斗，其乐无穷，与黑客斗其乐无穷。</p>
-</blockquote>
-
+</code></pre></div>
 <hr>
 
     </div>
@@ -222,22 +213,8 @@ border: 3px solid #FFF; height:150px;width:150px" />
       
        
         <li>
-          <a href="/tags.html#In-App Purchase-ref">
-          In-App Purchase <span>(2)</span>
-          ,
-          </a>
-        </li>
-       
-        <li>
-          <a href="/tags.html#应用内购-ref">
-          应用内购 <span>(2)</span>
-          ,
-          </a>
-        </li>
-       
-        <li>
-          <a href="/tags.html#凭证验证-ref">
-          凭证验证 <span>(2)</span>
+          <a href="/tags.html#CocoaPods-ref">
+          CocoaPods <span>(1)</span>
           
           </a>
         </li>
@@ -249,7 +226,7 @@ border: 3px solid #FFF; height:150px;width:150px" />
 
     <hr>
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key=/苹果App内购的一些坑_补充 data-title=苹果App内购的一些坑_补充 data-url=https://chengdonghai.github.io/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91_%E8%A1%A5%E5%85%85 ></div>
+    <div class="ds-thread" data-thread-key=/CocoaPods1.0之后变化 data-title=CocoaPods 1.0之后变化 data-url=https://chengdonghai.github.io/CocoaPods1.0%E4%B9%8B%E5%90%8E%E5%8F%98%E5%8C%96 ></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -267,7 +244,7 @@ border: 3px solid #FFF; height:150px;width:150px" />
     <div>
       <section class="share col-sm-6">
         <h4 class="section-title">Share Post</h4>
-        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=苹果App内购的一些坑_补充"
+        <a class="btn btn-default btn-sm twitter" href="http://twitter.com/share?text=CocoaPods 1.0之后变化"
            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
           <i class="fa fa-twitter fa-lg"></i>
           Twitter
@@ -300,10 +277,10 @@ border: 3px solid #FFF; height:150px;width:150px" />
 
     <ul class="pager">
       
-      <li class="previous"><a href="/%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93" title="企业级应用无法下载安装问题总结">&larr; 上一篇</a></li>
+      <li class="previous"><a href="/%E8%8B%B9%E6%9E%9CApp%E5%86%85%E8%B4%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91_%E8%A1%A5%E5%85%85" title="苹果App内购的一些坑_补充">&larr; 上一篇</a></li>
       
       
-      <li class="next"><a href="/CocoaPods1.0%E4%B9%8B%E5%90%8E%E5%8F%98%E5%8C%96" title="CocoaPods 1.0之后变化">下一篇 &rarr;</a></li>
+      <li class="next disabled"><a>下一篇 &rarr;</a>
       
     </ul>
 
